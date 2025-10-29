@@ -1,28 +1,48 @@
-import { useState } from 'react'
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Highlights from "./components/Highlights";
+import PlanVisit from "./components/PlanVisit";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Footer() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
+    <footer className="border-t border-emerald-100 bg-emerald-50">
+      <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col items-center justify-between gap-4 sm:flex-row">
+        <p className="text-sm text-emerald-800/80">
+          © {new Date().getFullYear()} Marayoor Sandalwood Forest — For awareness & travel planning.
         </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+        <a
+          href="#about"
+          className="text-sm font-medium text-emerald-800 hover:text-emerald-900"
+        >
+          Learn more
+        </a>
       </div>
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white text-emerald-900">
+      <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-emerald-100">
+        <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
+          <a href="#" className="font-semibold tracking-wide">Marayoor Sandalwood</a>
+          <nav className="hidden gap-6 sm:flex text-sm">
+            <a href="#about" className="hover:text-emerald-700">About</a>
+            <a href="#highlights" className="hover:text-emerald-700">Highlights</a>
+            <a href="#plan" className="hover:text-emerald-700">Plan</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Highlights />
+        <PlanVisit />
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
